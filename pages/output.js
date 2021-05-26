@@ -1,36 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 import Head from "next/head";
 import styles from '../styles/Home.module.css'
 
-// const Output = (props) => {
-//   const [gsdata, setgsdata] = useState("");
-//   useEffect(() => {
-//     getgsdata();
-//   }, []);
-
-//   const getgsdata = async () => {
-//     const res = await axios.get("https://script.google.com/macros/s/AKfycbzvy6cUylbvnirlZb-ctysABJyx3V17ojB8Zf2Wj4hQC43V0MLuRJPMgVi-hAkPtVff/exec");
-//     setgsdata(res.data);
-//     console.log(gsdata);
-//   };
-
-
 const Output = () => {
 
-  const [googleList, setGoogleList] = useState([])
+  const [attendees, setAttendees] = useState(null);
+  const fetchURL = 'https://script.google.com/macros/s/AKfycbzz0U2l0CAg301HjdPdl5cVhK_-817c5vyUBxtXy84USajAnhY5VGMhTM-gdCVe5HMC/exec';
 
-  const getGoogleEntries = (e) => {
-    e.preventDefault()
-
-    axios.get('https://script.googleusercontent.com/macros/echo?user_content_key=ihFD_ynrhr8T41_mcU3lSynf6LOLKoT-D55cDoJr6mKH2QQL3abXqCX15EWKoZBw6K3AMo6w3RhSA8lzrgSSulseWnoTGjJam5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnHRf4ZwJ58pRNjBWdGfwV2Ce0BwC6ukP9Hu3EGBO34mwteZ291qCBbMLudc46ImJqcdb5p27zqH2_TUPfEHLNl9d_L4CvoM-Uw&lib=MvullZSe_BioWuyotAnE0e0gfFirjCmHv')
-    // .then(res => setGoogleList(res.data))
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err))
+  function fetchAttendees() {
+    fetch(fetchURL)
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data);
+      setAttendees(data);
+    });
   }
-
+  
   return (
     <div className={styles.container}>
             <Head>
@@ -41,15 +29,19 @@ const Output = () => {
             <main className={styles.main}>
                 <h1 className={styles.title}>
                     Data From Google Sheets
-        </h1>
-        <div>
-             <button onClick={getGoogleEntries}>Get All Attendies Entries</button>
-             {/* {
-               googleList.length >= 1 ? googleList.map((google, index) => {
-                 return <p key={index}>{google.Name}</p>
-               })
-               : ''
-             } */}
+                </h1>
+            <div>
+            <h2>Attendee List</h2>
+             <button onClick={fetchAttendees}>Get All Attendies Entries</button>
+             
+             <div className="attendees">
+               {attendees && 
+               attendees.map((attendee, i) => (
+                 <ul key={i}>
+                   <li>{attendee.name} - {attendee.email}</li>
+                 </ul>
+               ))}
+             </div>
         </div>
             </main>
             <footer className={styles.footer}>
