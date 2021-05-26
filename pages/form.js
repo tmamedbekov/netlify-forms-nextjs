@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import ContactForm from '../components/contantForm'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -22,17 +23,7 @@ export default function Home() {
             <p>Find in-depth information about Next.js features and API.</p>
           </a> */}
 
-          <form name="contact" method="POST" data-netlify="true" action="/">
-            <p>
-              <label>Your Name: <input type="text" name="name" /></label>
-            </p>
-            <p>
-              <label>Your Email: <input type="text" name="email" /></label>
-            </p>
-            <p>
-              <button type="submit">Send</button>
-            </p>
-          </form>
+          <ContactForm />
 
 
         </div>
