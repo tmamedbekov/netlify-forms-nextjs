@@ -1,0 +1,6 @@
+[[redirects]]
+    from = "/api/google"
+    to = "https://script.googleusercontent.com/macros/echo?user_content_key=hXvi3RZyxHz79kjJBoPW4EMJ6En8iH7O4azFUuOUipgXdzeMvbWxS1-cDqW13lOpPII-w3QlLm9jMkGfUyAjBAOrKwS89jMCm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnPS6JY7QnwEoV4sR43DqQyLZAdAuM-MIGL3qdDi9gyO-szzETK5wQLpjEWZ7vgraEryX93CVU2CwBTb6CuxRoCNtYUNDEyoKNg&lib=MvullZSe_BioWuyotAnE0e0gfFirjCmHv"
+    status = 200
+    force = true
+    headers = {X-From = "Netlify"}
