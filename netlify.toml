@@ -1,6 +1,6 @@
 [[redirects]]
     from = "/api/google"
-    to = "https://script.google.com/macros/s/AKfycbzvy6cUylbvnirlZb-ctysABJyx3V17ojB8Zf2Wj4hQC43V0MLuRJPMgVi-hAkPtVff/exec"
+    to = "{you cad add url there}"
     status = 200
     force = true
     headers = {X-From = "Netlify"}
