@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import styles from '../styles/Home.module.css'
 
 const List = ({data}) => {
@@ -15,7 +14,7 @@ const List = ({data}) => {
                     Data From Google Sheets
                 </h1>
             <div>
-                <p>Test - {data.name}</p>
+                <p>Test - ({data.name})</p>
                 <p>Test</p>
                 <p>Test</p>
                 {/* {users.map(user => <div>{user.name}</div>)} */}
@@ -29,12 +28,11 @@ const List = ({data}) => {
 }
 
 export async function getServerSideProps () {
-    const res = await fetch(`https://script.googleusercontent.com/macros/echo?user_content_key=p0995ibAIi300DWQ-WDEZqdx-wiGpVKWpSv7fw2b4eIDCHZavSD7ypUXPcqiG9sEDF6WZHeJIgagxhKONIGe8X20Gh3m-_eVm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFoy1PN560dwUDvXNg3rmYQ7d6s-UOaZHMy1IwVN5YMpWfjMTZbfP6IsusXMXYVRzs1mARviTGDGPmPzeJQ6axOKQO8bQgGrXA&lib=MvullZSe_BioWuyotAnE0e0gfFirjCmHv`);
+    const res = await fetch(``);
     const data = await res.json();
-    
+    console.log (data);
     return {
         props: { data }, notFound: false
     }
 }
-
 export default List;

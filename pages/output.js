@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 const Output = () => {
 
   const [attendees, setAttendees] = useState(null);
-  const fetchURL = 'https://script.google.com/macros/s/AKfycbzz0U2l0CAg301HjdPdl5cVhK_-817c5vyUBxtXy84USajAnhY5VGMhTM-gdCVe5HMC/exec';
+  const fetchURL = '';
 
   function fetchAttendees() {
     fetch(fetchURL)
